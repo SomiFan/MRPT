@@ -1,0 +1,57 @@
+MODEL:
+  TYPE: mrpt
+  NAME: mrpt
+  MRPT:
+    STAGE1:
+      NUM_CHANNELS: 16
+
+    MS_STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      NUM_BLOCKS: [1, 1]
+      NUM_CHANNELS: [8, 8]
+      NUM_HEADS: [1, 1]
+      NUM_MLP_RATIOS: [4, 4]
+      NUM_RESOLUTIONS: [[128, 128], [64, 64]]
+      NUM_WINDOW_SIZES: [8, 8]
+      ATTN_TYPES: [[['isa_local'], ['isa_local']]]
+      BLOCK: 'TRANSFORMER_BLOCK'
+
+    MS_STAGE3:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 3
+      NUM_BLOCKS: [1, 1, 1]
+      NUM_CHANNELS: [8, 8, 8]
+      NUM_HEADS: [1, 1, 1]
+      NUM_MLP_RATIOS: [4, 4, 4]
+      NUM_RESOLUTIONS: [[128, 128], [64, 64], [32, 32]]
+      NUM_WINDOW_SIZES: [8, 8, 8]
+      ATTN_TYPES: [[['isa_local'], ['isa_local'], ['isa_local', 'isa_local']], [['isa_local'], ['isa_local'], ['isa_local', 'isa_local']]]
+      BLOCK: 'TRANSFORMER_BLOCK'
+
+    PAN_STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      NUM_BLOCKS: [1, 1]
+      NUM_CHANNELS: [8, 8]
+      NUM_HEADS: [1, 1]
+      NUM_MLP_RATIOS: [4, 4]
+      NUM_RESOLUTIONS: [[128, 128], [64, 64]]
+      NUM_WINDOW_SIZES: [8, 8]
+      ATTN_TYPES: [[['isa_local'], ['isa_local']]]
+      BLOCK: 'TRANSFORMER_BLOCK'
+
+    PAN_STAGE3:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 3
+      NUM_BLOCKS: [1, 1, 1]
+      NUM_CHANNELS: [8, 8, 8]
+      NUM_HEADS: [1, 1, 1]
+      NUM_MLP_RATIOS: [4, 4, 4]
+      NUM_RESOLUTIONS: [[128, 128], [64, 64], [32, 32]]
+      NUM_WINDOW_SIZES: [8, 8, 8]
+      ATTN_TYPES: [[['isa_local'], ['isa_local'], ['isa_local']]]
+      BLOCK: 'TRANSFORMER_BLOCK'
+
+    STAGE4:
+      NUM_CHANNELS: [8, 8, 8]
